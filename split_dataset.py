@@ -17,19 +17,19 @@ ds_path = "datasets/" + ds_name.lower() + "/"
 filename = ds_path + "train.txt"  # this number of data in icews14 is 72826;
 
 with open(filename, "r", encoding='UTF-8') as f:
-    data = f.readlines()
+    originalData = f.readlines()  # data in original dataset;
 
 print(filename)
-print(len(data))
-print(data[0])
-print(data[len(data)-1])
+print(len(originalData))
+print(originalData[0])
+print(originalData[len(originalData)-1])
 
 writeFileName = ds_path + 'split_train.txt'
 
-numTrainTriple = int(len(data)/2)
+numTrainTriple = int(len(originalData)/2)
 with open(writeFileName, 'w', encoding='UTF-8') as f:
     for i in range(numTrainTriple):
-        f.write("%s" % data[i])
+        f.write("%s" % originalData[i])
 
 with open(writeFileName, "r", encoding='UTF-8') as f:
     data = f.readlines()
