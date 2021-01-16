@@ -25,8 +25,8 @@ class Dataset:
         self.ds_path = "datasets/" + ds_name.lower() + "/"
         self.ent2id = {}
         self.rel2id = {}
-        self.data = {"train": self.readFile(self.ds_path + "test.txt"),
-                     "valid": self.readFile(self.ds_path + "test.txt"),
+        self.data = {"train": self.readFile(self.ds_path + "train.txt"),
+                     "valid": self.readFile(self.ds_path + "valid.txt"),
                      "test":  self.readFile(self.ds_path + "test.txt")}
         
         self.start_batch = 0
