@@ -1,4 +1,4 @@
-# This file is intended to analyze and generate datasets; 
+# This file is intended to analyze and generate datasets;
 
 import argparse
 from dataset import Dataset

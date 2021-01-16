@@ -14,8 +14,7 @@ from scripts import shredFacts
 
 class Dataset:
     """Implements the specified dataloader"""
-    def __init__(self, 
-                 ds_name):
+    def __init__(self, ds_name):
         """
         Params:
                 ds_name : name of the dataset 
@@ -39,8 +38,7 @@ class Dataset:
         for spl in ["train", "valid", "test"]:
             self.data[spl] = np.array(self.data[spl])
         
-    def readFile(self, 
-                 filename):
+    def readFile(self, filename):
 
         with open(filename, "r", encoding='UTF-8') as f:
             data = f.readlines()
