@@ -14,7 +14,7 @@ print(len(dataset.data["test"]))
 
 ds_name = "icews14"
 ds_path = "datasets/" + ds_name.lower() + "/"
-filename = ds_path + "train.txt"
+filename = ds_path + "train.txt"  # this number of data in icews14 is 72826;
 
 with open(filename, "r", encoding='UTF-8') as f:
     data = f.readlines()
@@ -24,7 +24,7 @@ print(len(data))
 print(data[0])
 print(data[len(data)-1])
 
-writeFileName = ds_path + 'your_file.txt'
+writeFileName = ds_path + 'split_train.txt'
 
 with open(writeFileName, 'w', encoding='UTF-8') as f:
     for i in range(len(data)):
