@@ -26,7 +26,7 @@ print(data[len(data)-1])
 
 writeFileName = ds_path + 'split_train.txt'
 
-numTrainTriple = 10000
+numTrainTriple = int(len(data)/2)
 with open(writeFileName, 'w', encoding='UTF-8') as f:
     for i in range(numTrainTriple):
         f.write("%s" % data[i])
