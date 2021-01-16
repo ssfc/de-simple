@@ -19,12 +19,15 @@ filename = ds_path + "train.txt"
 with open(filename, "r", encoding='UTF-8') as f:
     data = f.readlines()
 
-print(len(data))
-print(data[0])
-print(data[1])
+# print(len(data))
+# print(data[0])
+# print(data[1])
 
+writeFileName = ds_path + 'your_file.txt'
 
-
+with open(writeFileName, 'w', encoding='UTF-8') as f:
+    for item in data:
+        f.write("%s" % item)
 
 
 
