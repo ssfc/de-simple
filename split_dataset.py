@@ -29,7 +29,7 @@ print(originalData[len(originalData)-1])
 if not os.path.exists('datasets/split_icews14'):
     os.makedirs('datasets/split_icews14')
 
-writeFileName = ds_path + 'split_train.txt'
+writeFileName = 'datasets/split_icews14/' + 'train.txt'
 
 numTrainTriple = int(len(originalData)/2)
 with open(writeFileName, 'w', encoding='UTF-8') as f:
