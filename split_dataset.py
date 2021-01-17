@@ -35,8 +35,12 @@ numTrainTriple = int(len(originalTrainData)/2)
 with open('datasets/split_icews14/' + 'train.txt', 'w', encoding='UTF-8') as f:
     for i in range(numTrainTriple):
         f.write("%s" % originalTrainData[i])
-
-
+with open('datasets/split_icews14/' + 'valid.txt', 'w', encoding='UTF-8') as f:
+    for element in originalValidData:
+        f.write("%s" % element)
+with open('datasets/split_icews14/' + 'test.txt', 'w', encoding='UTF-8') as f:
+    for element in originalTestData:
+        f.write("%s" % element)
 
 
 
