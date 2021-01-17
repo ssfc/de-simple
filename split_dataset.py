@@ -16,12 +16,10 @@ print(len(dataset.data["test"]))
 
 ds_name = "icews14"
 ds_path = "datasets/" + ds_name.lower() + "/"
-filename = ds_path + "train.txt"  # this number of data in icews14 is 72826;
 
-with open(filename, "r", encoding='UTF-8') as f:
+with open(ds_path + "train.txt", "r", encoding='UTF-8') as f:
     originalTrainData = f.readlines()  # data in original dataset;
 
-print(filename)
 print(len(originalTrainData))
 print(originalTrainData[0])
 print(originalTrainData[len(originalTrainData)-1])
@@ -29,17 +27,20 @@ print(originalTrainData[len(originalTrainData)-1])
 if not os.path.exists('datasets/split_icews14'):
     os.makedirs('datasets/split_icews14')
 
-writeFileName = 'datasets/split_icews14/' + 'train.txt'
-
 numTrainTriple = int(len(originalTrainData)/2)
-with open(writeFileName, 'w', encoding='UTF-8') as f:
+with open('datasets/split_icews14/' + 'train.txt', 'w', encoding='UTF-8') as f:
     for i in range(numTrainTriple):
         f.write("%s" % originalTrainData[i])
 
-with open(writeFileName, "r", encoding='UTF-8') as f:
+
+
+
+
+# test whether it is correct;
+with open('datasets/split_icews14/' + 'train.txt', "r", encoding='UTF-8') as f:
     data = f.readlines()
 
-print(writeFileName)
+print('datasets/split_icews14/' + 'train.txt')
 print(len(data))
 print(data[0])
 print(data[len(data)-1])
