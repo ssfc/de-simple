@@ -1,10 +1,12 @@
 # This file is intended to analyze and generate datasets;
 
 import argparse
+import os
 from dataset import Dataset
 from trainer import Trainer
 from tester import Tester
 from params import Params
+
 
 dataset = Dataset('icews14')
 
@@ -23,6 +25,9 @@ print(filename)
 print(len(originalData))
 print(originalData[0])
 print(originalData[len(originalData)-1])
+
+if not os.path.exists('datasets/split_icews14'):
+    os.makedirs('datasets/split_icews14')
 
 writeFileName = ds_path + 'split_train.txt'
 
