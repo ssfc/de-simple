@@ -19,6 +19,10 @@ ds_path = "datasets/" + ds_name.lower() + "/"
 
 with open(ds_path + "train.txt", "r", encoding='UTF-8') as f:
     originalTrainData = f.readlines()  # data in original dataset;
+with open(ds_path + "valid.txt", "r", encoding='UTF-8') as f:
+    originalValidData = f.readlines()  # data in original dataset;
+with open(ds_path + "test.txt", "r", encoding='UTF-8') as f:
+    originalTestData = f.readlines()  # data in original dataset;
 
 print(len(originalTrainData))
 print(originalTrainData[0])
