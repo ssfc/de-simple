@@ -38,7 +38,7 @@ class Dataset:
         for spl in ["train", "valid", "test"]:
             self.data[spl] = np.array(self.data[spl])
         
-    def readFile(self, filename):  # this function read data in txt and convert them to array consists of numbers;
+    def readFile(self, filename):  # This function reads data in txt and convert them to array consists of numbers;
 
         with open(filename, "r", encoding='UTF-8') as f:
             data = f.readlines()
