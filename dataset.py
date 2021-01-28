@@ -50,7 +50,7 @@ class Dataset:
             elements = line.strip().split("\t")
 
             head_id = self.get_entity_id(elements[0])
-            rel_id = self.getRelID(elements[1])
+            rel_id = self.get_relation_id(elements[1])
             tail_id = self.get_entity_id(elements[2])
             timestamp = elements[3]
 
@@ -70,22 +70,18 @@ class Dataset:
                 self.data[split][i] += date
 
     def numEnt(self):  # number of entity;
-
         return len(self.ent2id)
 
     def numRel(self):  # number of relation;
-
         return len(self.rel2id)
 
-    def get_entity_id(self,
-                 ent_name):
-
+    def get_entity_id(self, ent_name):
         if ent_name in self.ent2id:
             return self.ent2id[ent_name]
         self.ent2id[ent_name] = len(self.ent2id)
         return self.ent2id[ent_name]
 
-    def getRelID(self, rel_name):
+    def get_relation_id(self, rel_name):
         if rel_name in self.rel2id:
             return self.rel2id[rel_name]
         self.rel2id[rel_name] = len(self.rel2id)
