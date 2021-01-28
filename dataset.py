@@ -127,7 +127,7 @@ class Dataset:
         facts2[:, 2] = (facts2[:, 2] + rand_nums2) % self.numEnt()
         return np.concatenate((facts1, facts2), axis=0)
 
-    def nextBatch(self, batch_size, neg_ratio=1):
+    def get_next_batch(self, batch_size, neg_ratio=1):
         bp_facts = self.nextPosBatch(batch_size)
         batch = shredFacts(self.addNegFacts2(bp_facts, neg_ratio))
         return batch

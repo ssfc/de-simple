@@ -44,7 +44,7 @@ class Trainer:
             while not last_batch:
                 optimizer.zero_grad()
 
-                heads, rels, tails, years, months, days = self.dataset.nextBatch(self.params.bsize,
+                heads, rels, tails, years, months, days = self.dataset.get_next_batch(self.params.bsize,
                                                                                  neg_ratio=self.params.neg_ratio)
                 last_batch = self.dataset.was_last_batch()
 
