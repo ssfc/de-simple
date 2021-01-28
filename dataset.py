@@ -112,7 +112,7 @@ class Dataset:
 
         return facts
 
-    def addNegFacts2(self, bp_facts, neg_ratio):
+    def add_negative_facts2(self, bp_facts, neg_ratio):
         pos_neg_group_size = 1 + neg_ratio
         facts1 = np.repeat(np.copy(bp_facts), pos_neg_group_size, axis=0)
         facts2 = np.copy(facts1)
@@ -129,7 +129,7 @@ class Dataset:
 
     def get_next_batch(self, batch_size, neg_ratio=1):
         bp_facts = self.nextPosBatch(batch_size)
-        batch = shredFacts(self.addNegFacts2(bp_facts, neg_ratio))
+        batch = shredFacts(self.add_negative_facts2(bp_facts, neg_ratio))
         return batch
 
     def was_last_batch(self):
