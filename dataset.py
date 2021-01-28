@@ -49,9 +49,9 @@ class Dataset:
         for line in data:
             elements = line.strip().split("\t")
 
-            head_id = self.getEntID(elements[0])
+            head_id = self.get_entity_id(elements[0])
             rel_id = self.getRelID(elements[1])
-            tail_id = self.getEntID(elements[2])
+            tail_id = self.get_entity_id(elements[2])
             timestamp = elements[3]
 
             facts.append([head_id, rel_id, tail_id, timestamp])
@@ -77,7 +77,7 @@ class Dataset:
 
         return len(self.rel2id)
 
-    def getEntID(self,
+    def get_entity_id(self,
                  ent_name):
 
         if ent_name in self.ent2id:
