@@ -96,7 +96,7 @@ class Dataset:
             self.start_batch += batch_size
         return ret_facts
 
-    def addNegFacts(self, bp_facts, neg_ratio):
+    def add_negative_facts(self, bp_facts, neg_ratio):
         ex_per_pos = 2 * neg_ratio + 2
         facts = np.repeat(np.copy(bp_facts), ex_per_pos, axis=0)
         for i in range(bp_facts.shape[0]):
@@ -133,4 +133,4 @@ class Dataset:
         return batch
 
     def wasLastBatch(self):
-        return (self.start_batch == 0)
+        return self.start_batch == 0
