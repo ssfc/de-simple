@@ -46,7 +46,7 @@ class Trainer:
 
                 heads, rels, tails, years, months, days = self.dataset.nextBatch(self.params.bsize,
                                                                                  neg_ratio=self.params.neg_ratio)
-                last_batch = self.dataset.wasLastBatch()
+                last_batch = self.dataset.was_last_batch()
 
                 scores = self.model(heads, rels, tails, years, months, days)
 

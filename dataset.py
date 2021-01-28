@@ -132,5 +132,7 @@ class Dataset:
         batch = shredFacts(self.addNegFacts2(bp_facts, neg_ratio))
         return batch
 
-    def wasLastBatch(self):
+    def was_last_batch(self):
         return self.start_batch == 0
+
+
