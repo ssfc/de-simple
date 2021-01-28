@@ -33,7 +33,7 @@ class Dataset:
         self.start_batch = 0
         self.all_facts_as_tuples = None
 
-        self.convertTimes()
+        self.convert_times()
 
         self.all_facts_as_tuples = set([tuple(d) for d in self.data["train"] + self.data["valid"] + self.data["test"]])
 
@@ -58,7 +58,7 @@ class Dataset:
 
         return facts
 
-    def convertTimes(self):
+    def convert_times(self):
         """
         This function spits the timestamp in the day,date and time.
         """
