@@ -26,9 +26,9 @@ class Dataset:
         self.ds_path = "datasets/" + ds_name.lower() + "/"
         self.ent2id = {}
         self.rel2id = {}
-        self.data = {"train": self.readFile(self.ds_path + "train.txt"),
-                     "valid": self.readFile(self.ds_path + "valid.txt"),
-                     "test": self.readFile(self.ds_path + "test.txt")}
+        self.data = {"train": self.read_file(self.ds_path + "train.txt"),
+                     "valid": self.read_file(self.ds_path + "valid.txt"),
+                     "test": self.read_file(self.ds_path + "test.txt")}
 
         self.start_batch = 0
         self.all_facts_as_tuples = None
@@ -40,7 +40,7 @@ class Dataset:
         for spl in ["train", "valid", "test"]:
             self.data[spl] = np.array(self.data[spl])
 
-    def readFile(self, filename):  # This function reads data in txt and convert them to array consists of numbers;
+    def read_file(self, filename):  # This function reads data in txt and convert them to array consists of numbers;
 
         with open(filename, "r", encoding='UTF-8') as f:
             data = f.readlines()
