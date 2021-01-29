@@ -18,8 +18,8 @@ class DE_TransE(torch.nn.Module):
         self.dataset = dataset
         self.params = params
 
-        self.ent_embs = nn.Embedding(dataset.numEnt(), params.s_emb_dim).cuda()
-        self.rel_embs = nn.Embedding(dataset.numRel(), params.s_emb_dim + params.t_emb_dim).cuda()
+        self.ent_embs = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
+        self.rel_embs = nn.Embedding(dataset.numRel(), params.static_emb_dim + params.t_emb_dim).cuda()
 
         self.create_time_embedds()
 

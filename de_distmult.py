@@ -23,8 +23,8 @@ class DE_DistMult(torch.nn.Module):
         self.params = params
 
         # Creating static embeddings.
-        self.ent_embs = nn.Embedding(dataset.numEnt(), params.s_emb_dim).cuda()
-        self.rel_embs = nn.Embedding(dataset.numRel(), params.s_emb_dim + params.t_emb_dim).cuda()
+        self.ent_embs = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
+        self.rel_embs = nn.Embedding(dataset.numRel(), params.static_emb_dim + params.t_emb_dim).cuda()
 
         # Creating and initializing the temporal embeddings for the entities 
         self.create_time_embedds()

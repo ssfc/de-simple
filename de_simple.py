@@ -17,10 +17,10 @@ class DE_SimplE(torch.nn.Module):
         self.dataset = dataset
         self.params = params
         
-        self.ent_embs_h = nn.Embedding(dataset.numEnt(), params.s_emb_dim).cuda()
-        self.ent_embs_t = nn.Embedding(dataset.numEnt(), params.s_emb_dim).cuda()
-        self.rel_embs_f = nn.Embedding(dataset.numRel(), params.s_emb_dim+params.t_emb_dim).cuda()
-        self.rel_embs_i = nn.Embedding(dataset.numRel(), params.s_emb_dim+params.t_emb_dim).cuda()
+        self.ent_embs_h = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
+        self.ent_embs_t = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
+        self.rel_embs_f = nn.Embedding(dataset.numRel(), params.static_emb_dim+params.t_emb_dim).cuda()
+        self.rel_embs_i = nn.Embedding(dataset.numRel(), params.static_emb_dim+params.t_emb_dim).cuda()
         
         self.create_time_embedds()
 
