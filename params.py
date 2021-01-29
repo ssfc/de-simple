@@ -8,8 +8,8 @@ class Params:
 
     def __init__(self,
                  ne=500,
-                 bsize=512,
-                 lr=0.001,
+                 bsize=512,  # batch size;
+                 lr=0.001,  # learning rate;
                  reg_lambda=0.0,
                  emb_dim=100,
                  neg_ratio=20,
@@ -21,7 +21,7 @@ class Params:
         self.lr = lr
         self.reg_lambda = reg_lambda
         self.static_emb_dim = int(se_prop * emb_dim)
-        self.t_emb_dim = emb_dim - int(se_prop * emb_dim)
+        self.temporal_emb_dim = emb_dim - int(se_prop * emb_dim)
         self.save_each = save_each
         self.neg_ratio = neg_ratio
         self.dropout = dropout
@@ -30,4 +30,4 @@ class Params:
     def str_(self):
         return str(self.ne) + "_" + str(self.bsize) + "_" + str(self.lr) + "_" + str(self.reg_lambda) + "_" + str(
             self.static_emb_dim) + "_" + str(self.neg_ratio) + "_" + str(self.dropout) + "_" + str(
-            self.t_emb_dim) + "_" + str(self.save_each) + "_" + str(self.se_prop)
+            self.temporal_emb_dim) + "_" + str(self.save_each) + "_" + str(self.se_prop)

@@ -24,7 +24,7 @@ class DE_DistMult(torch.nn.Module):
 
         # Creating static embeddings.
         self.ent_embs = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
-        self.rel_embs = nn.Embedding(dataset.numRel(), params.static_emb_dim + params.t_emb_dim).cuda()
+        self.rel_embs = nn.Embedding(dataset.numRel(), params.static_emb_dim + params.temporal_emb_dim).cuda()
 
         # Creating and initializing the temporal embeddings for the entities 
         self.create_time_embedds()
@@ -37,27 +37,27 @@ class DE_DistMult(torch.nn.Module):
 
     def create_time_embedds(self):
         # frequency embeddings for the entities
-        self.m_freq = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_freq = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_freq = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
+        self.m_freq = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_freq = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_freq = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
 
         nn.init.xavier_uniform_(self.m_freq.weight)
         nn.init.xavier_uniform_(self.d_freq.weight)
         nn.init.xavier_uniform_(self.y_freq.weight)
 
         # phi embeddings for the entities
-        self.m_phi = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_phi = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_phi = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
+        self.m_phi = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_phi = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_phi = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
 
         nn.init.xavier_uniform_(self.m_phi.weight)
         nn.init.xavier_uniform_(self.d_phi.weight)
         nn.init.xavier_uniform_(self.y_phi.weight)
 
         # amplitude embeddings for the entities
-        self.m_amp = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_amp = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_amp = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
+        self.m_amp = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_amp = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_amp = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
 
         nn.init.xavier_uniform_(self.m_amp.weight)
         nn.init.xavier_uniform_(self.d_amp.weight)

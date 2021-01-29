@@ -19,8 +19,8 @@ class DE_SimplE(torch.nn.Module):
         
         self.ent_embs_h = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
         self.ent_embs_t = nn.Embedding(dataset.numEnt(), params.static_emb_dim).cuda()
-        self.rel_embs_f = nn.Embedding(dataset.numRel(), params.static_emb_dim+params.t_emb_dim).cuda()
-        self.rel_embs_i = nn.Embedding(dataset.numRel(), params.static_emb_dim+params.t_emb_dim).cuda()
+        self.rel_embs_f = nn.Embedding(dataset.numRel(), params.static_emb_dim+params.temporal_emb_dim).cuda()
+        self.rel_embs_i = nn.Embedding(dataset.numRel(), params.static_emb_dim+params.temporal_emb_dim).cuda()
         
         self.create_time_embedds()
 
@@ -34,28 +34,28 @@ class DE_SimplE(torch.nn.Module):
     def create_time_embedds(self):
 
         # frequency embeddings for the entities
-        self.m_freq_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.m_freq_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_freq_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_freq_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_freq_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_freq_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
+        self.m_freq_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.m_freq_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_freq_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_freq_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_freq_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_freq_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
 
         # phi embeddings for the entities
-        self.m_phi_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.m_phi_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_phi_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_phi_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_phi_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_phi_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
+        self.m_phi_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.m_phi_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_phi_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_phi_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_phi_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_phi_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
 
         # frequency embeddings for the entities
-        self.m_amps_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.m_amps_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_amps_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.d_amps_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_amps_h = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
-        self.y_amps_t = nn.Embedding(self.dataset.numEnt(), self.params.t_emb_dim).cuda()
+        self.m_amps_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.m_amps_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_amps_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.d_amps_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_amps_h = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
+        self.y_amps_t = nn.Embedding(self.dataset.numEnt(), self.params.temporal_emb_dim).cuda()
 
         nn.init.xavier_uniform_(self.m_freq_h.weight)
         nn.init.xavier_uniform_(self.d_freq_h.weight)
