@@ -25,6 +25,14 @@ class Trainer:
         self.dataset = dataset
         self.params = params
 
+    def saveModel(self, chkpnt):
+        print("Saving the model")
+        directory = "models/" + self.model_name + "/" + self.dataset.name + "/"
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
+        torch.save(self.model, directory + self.params.str_() + "_" + str(chkpnt) + ".chkpnt")
+
     def train(self, early_stop=False):
         self.model.train()
 
@@ -66,10 +74,4 @@ class Trainer:
             if epoch % self.params.save_each == 0:
                 self.saveModel(epoch)
 
-    def saveModel(self, chkpnt):
-        print("Saving the model")
-        directory = "models/" + self.model_name + "/" + self.dataset.name + "/"
-        if not os.path.exists(directory):
-            os.makedirs(directory)
 
-        torch.save(self.model, directory + self.params.str_() + "_" + str(chkpnt) + ".chkpnt")
