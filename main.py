@@ -44,7 +44,7 @@ params = Params(
 trainer = Trainer(dataset, params, args.model)
 trainer.train()
 
-# validating the trained models. we seect the model that has the best validation performance as the final model
+# validating the trained models. we select the model that has the best validation performance as the final model
 validation_idx = [str(int(args.save_each * (i + 1))) for i in range(args.ne // args.save_each)]
 best_mrr = -1.0
 best_index = '0'
