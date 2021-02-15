@@ -22,7 +22,7 @@ class Params:
         self.reg_lambda = reg_lambda
         self.static_emb_dim = int(se_prop * emb_dim)
         self.temporal_emb_dim = emb_dim - int(se_prop * emb_dim)
-        self.save_each = save_each
+        self.save_each = save_each  # save model after certain epochs;
         self.neg_ratio = neg_ratio
         self.dropout = dropout
         self.se_prop = se_prop

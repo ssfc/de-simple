@@ -27,7 +27,7 @@ class Trainer:
 
     def saveModel(self, chkpnt):
         print("Saving the model")
-        directory = "models/" + self.model_name + "/" + self.dataset.name + "/"
+        directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models; 
         if not os.path.exists(directory):
             os.makedirs(directory)
 
