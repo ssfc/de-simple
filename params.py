@@ -17,8 +17,8 @@ class Params:
                  save_each=50,
                  se_prop=0.9):
         self.ne = ne
-        self.bsize = bsize
-        self.lr = lr
+        self.bsize = bsize  # batch size;
+        self.lr = lr  # learning rate;
         self.reg_lambda = reg_lambda
         self.static_emb_dim = int(se_prop * emb_dim)
         self.temporal_emb_dim = emb_dim - int(se_prop * emb_dim)
