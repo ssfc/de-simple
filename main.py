@@ -4,13 +4,14 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 #
-import argparse
-from dataset import Dataset
-from trainer import Trainer
-from tester import Tester
-from params import Params
+import argparse  # Part 1;
+from dataset import Dataset  # Part 2;
+from params import Params  # Part 3;
+from trainer import Trainer  # Part 4;
+from tester import Tester  # Part 5;
 
 
+# --------------------------------------------- 1. this part use argparse --------------------------------------
 parser = argparse.ArgumentParser(description='Temporal KG Completion methods')
 
 parser.add_argument('-dataset', help='Dataset', type=str, default='icews14', choices = ['icews14','split_icews14', 'icews05-15', 'gdelt'])
@@ -27,8 +28,10 @@ parser.add_argument('-se_prop', help='Static embedding proportion', type=float, 
 
 args = parser.parse_args()
 
+# --------------------------------------------- 2. this part use Dataset --------------------------------------
 dataset = Dataset(args.dataset)
 
+# --------------------------------------------- 3. this part use Params --------------------------------------
 params = Params(
     ne=args.ne, 
     bsize=args.bsize, 
@@ -41,6 +44,7 @@ params = Params(
     se_prop=args.se_prop
 )
 
+# --------------------------------------------- 4. this part use Trainer --------------------------------------
 trainer = Trainer(dataset, params, args.model)
 trainer.train()
 
@@ -61,6 +65,9 @@ for idx in validation_idx:
 # testing the best chosen model on the test set
 print("Best epoch: " + best_index)
 model_path = model_prefix + best_index + ".chkpnt"
+
+# --------------------------------------------- 5. this part use Tester --------------------------------------
 tester = Tester(dataset, model_path, "test")
 tester.test()
+
 
