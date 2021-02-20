@@ -25,7 +25,7 @@ class Trainer:
         self.dataset = dataset
         self.params = params
 
-    def saveModel(self, chkpnt):
+    def save_model(self, chkpnt):
         print("Saving the model")
         directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
         if not os.path.exists(directory):
@@ -72,4 +72,4 @@ class Trainer:
                 total_loss) + "(" + self.model_name + "," + self.dataset.name + ")")
 
             if epoch % self.params.save_each == 0:
-                self.saveModel(epoch)
+                self.save_model(epoch)
