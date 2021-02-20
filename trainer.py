@@ -52,11 +52,11 @@ class Trainer:
             while not last_batch:
                 optimizer.zero_grad()
 
-                heads, rels, tails, years, months, days = self.dataset.get_next_batch(self.params.bsize,
+                heads, relations, tails, years, months, days = self.dataset.get_next_batch(self.params.bsize,
                                                                                       neg_ratio=self.params.neg_ratio)
                 last_batch = self.dataset.was_last_batch()
 
-                scores = self.model(heads, rels, tails, years, months, days)
+                scores = self.model(heads, relations, tails, years, months, days)
 
                 # Added for softmax
                 num_examples = int(heads.shape[0] / (1 + self.params.neg_ratio))
