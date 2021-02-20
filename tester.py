@@ -22,7 +22,7 @@ class Tester:
         self.valid_or_test = valid_or_test
         self.measure = Measure()
 
-    def getRank(self, sim_scores):  # assuming the test fact is the first one
+    def get_rank(self, sim_scores):  # assuming the test fact is the first one
         return (sim_scores > sim_scores[0]).sum() + 1
 
     def replaceAndShred(self, fact, raw_or_fil, head_or_tail):
@@ -46,7 +46,7 @@ class Tester:
                 for head_or_tail in ["head", "tail"]:
                     heads, rels, tails, years, months, days = self.replaceAndShred(fact, raw_or_fil, head_or_tail)
                     sim_scores = self.model(heads, rels, tails, years, months, days).cpu().data.numpy()
-                    rank = self.getRank(sim_scores)
+                    rank = self.get_rank(sim_scores)
                     self.measure.update(rank, raw_or_fil)
 
         self.measure.print_()
