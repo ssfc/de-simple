@@ -72,9 +72,7 @@ class Trainer:
             print("Loss in iteration " + str(epoch) + ": " + str(
                 total_loss) + "(" + self.model_name + "," + self.dataset.name + ")")
 
-            temp = "Loss in iteration " + str(epoch) + ": " + str(
-                total_loss) + "(" + self.model_name + "," + self.dataset.name + ")"
-            content.append(temp)
+            content.append(total_loss)
 
             if epoch % self.params.save_each == 0:
                 self.save_model(epoch)
@@ -82,4 +80,4 @@ class Trainer:
         directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
         with open(directory + self.params.str_() + ".txt", "w+", encoding='UTF-8') as f:
             for element in content:
-                f.write(element)
+                f.write("%s" % element)
