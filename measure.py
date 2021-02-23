@@ -7,7 +7,7 @@
 class Measure:
 
     def __init__(self):
-        self.hit1 = {"raw": 0.0, "fil": 0.0}
+        self.hit1 = {"raw": 0.0, "fil": 0.0}  # all initialize to zero; 
         self.hit3 = {"raw": 0.0, "fil": 0.0}
         self.hit10 = {"raw": 0.0, "fil": 0.0}
         self.mrr = {"raw": 0.0, "fil": 0.0}
