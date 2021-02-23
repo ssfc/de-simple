@@ -62,11 +62,11 @@ for idx in validation_idx:
         best_mrr = mrr
         best_index = idx
 
+# --------------------------------------------- 5. this part use Tester --------------------------------------
 # testing the best chosen model on the test set
 print("Best epoch: " + best_index)
 model_path = model_prefix + best_index + ".chkpnt"
 
-# --------------------------------------------- 5. this part use Tester --------------------------------------
 tester = Tester(dataset, model_path, "test")
 tester.test()
 
