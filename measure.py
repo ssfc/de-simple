@@ -7,7 +7,7 @@
 class Measure:
 
     def __init__(self):
-        self.hit1 = {"raw": 0.0, "fil": 0.0}  # all initialize to zero; 
+        self.hit1 = {"raw": 0.0, "fil": 0.0}  # all initialize to zero;
         self.hit3 = {"raw": 0.0, "fil": 0.0}
         self.hit10 = {"raw": 0.0, "fil": 0.0}
         self.mrr = {"raw": 0.0, "fil": 0.0}
@@ -15,11 +15,11 @@ class Measure:
 
     def update(self, rank, raw_or_fil):
         if rank == 1:
-            self.hit1[raw_or_fil] += 1.0
+            self.hit1[raw_or_fil] += 1.0  # count ranks;
         if rank <= 3:
-            self.hit3[raw_or_fil] += 1.0
+            self.hit3[raw_or_fil] += 1.0  # count ranks;
         if rank <= 10:
-            self.hit10[raw_or_fil] += 1.0
+            self.hit10[raw_or_fil] += 1.0  # count ranks;
 
         self.mr[raw_or_fil] += rank
         self.mrr[raw_or_fil] += (1.0 / rank)
