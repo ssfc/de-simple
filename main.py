@@ -48,6 +48,8 @@ params = Params(
 trainer = Trainer(dataset, params, args.model)
 trainer.train()
 
+# --------------------------------------------- 5. this part use Tester --------------------------------------
+
 # validating the trained models. we select the model that has the best validation performance as the final model
 validation_idx = [str(int(args.save_each * (i + 1))) for i in range(args.ne // args.save_each)]
 best_mrr = -1.0
@@ -62,7 +64,6 @@ for idx in validation_idx:
         best_mrr = mrr
         best_index = idx
 
-# --------------------------------------------- 5. this part use Tester --------------------------------------
 # testing the best chosen model on the test set
 print("Best epoch: " + best_index)
 model_path = model_prefix + best_index + ".chkpnt"
