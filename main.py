@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(description='Temporal KG Completion methods')
 
 parser.add_argument('-dataset', help='Dataset', type=str, default='icews14', choices = ['icews14','split_icews14', 'icews05-15', 'gdelt'])
 parser.add_argument('-model', help='Model', type=str, default='DE_DistMult', choices = ['DE_DistMult', 'DE_TransE', 'DE_SimplE'])
-parser.add_argument('-ne', help='Number of epochs', type=int, default=500, choices = [3, 500])
+parser.add_argument('-ne', help='Number of epochs', type=int, default=500, choices = [20, 500])
 parser.add_argument('-bsize', help='Batch size', type=int, default=256, choices = [256])
 parser.add_argument('-lr', help='Learning rate', type=float, default=0.001, choices = [0.001])
 parser.add_argument('-reg_lambda', help='L2 regularization parameter', type=float, default=0.0, choices = [0.0])
