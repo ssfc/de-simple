@@ -80,4 +80,4 @@ class Trainer:
         directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
         with open(directory + self.params.str_() + ".txt", "w+", encoding='UTF-8') as f:
             for element in content:
-                f.write("%s" % element)
+                f.write("%s\n" % element)
