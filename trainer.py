@@ -53,7 +53,7 @@ class Trainer:
                 optimizer.zero_grad()
 
                 heads, relations, tails, years, months, days = self.dataset.get_next_batch(self.params.bsize,
-                                                                                      neg_ratio=self.params.neg_ratio)
+                                                                                           neg_ratio=self.params.neg_ratio)
                 last_batch = self.dataset.was_last_batch()
 
                 scores = self.model(heads, relations, tails, years, months, days)
@@ -70,6 +70,12 @@ class Trainer:
             print(time.time() - start)
             print("Loss in iteration " + str(epoch) + ": " + str(
                 total_loss) + "(" + self.model_name + "," + self.dataset.name + ")")
+
+            directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
+            content = "Loss in iteration " + str(epoch) + ": " + str(
+                total_loss) + "(" + self.model_name + "," + self.dataset.name + ")"
+            with open(directory + self.params.str_() + ".txt", "w+", encoding='UTF-8') as f:
+                f.write(content)
 
             if epoch % self.params.save_each == 0:
                 self.save_model(epoch)
