@@ -43,6 +43,7 @@ class Trainer:
         )  # weight_decay corresponds to L2 regularization
 
         loss_f = nn.CrossEntropyLoss()
+        content = ""
 
         for epoch in range(1, self.params.ne + 1):
             last_batch = False
@@ -71,11 +72,12 @@ class Trainer:
             print("Loss in iteration " + str(epoch) + ": " + str(
                 total_loss) + "(" + self.model_name + "," + self.dataset.name + ")")
 
-            directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
-            content = "Loss in iteration " + str(epoch) + ": " + str(
+            content = content + "Loss in iteration " + str(epoch) + ": " + str(
                 total_loss) + "(" + self.model_name + "," + self.dataset.name + ")"
-            with open(directory + self.params.str_() + ".txt", "w+", encoding='UTF-8') as f:
-                f.write(content)
 
             if epoch % self.params.save_each == 0:
                 self.save_model(epoch)
+
+        directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
+        with open(directory + self.params.str_() + ".txt", "w+", encoding='UTF-8') as f:
+            f.write(content)
