@@ -42,7 +42,7 @@ class Measure:
             print("\tMRR =", self.mrr[raw_or_fil])
             print("")
 
-    def save_result(self, path):
+    def save_result(self, path, name):
         for raw_or_fil in ["raw", "fil"]:
             print(raw_or_fil.title() + " setting:")
             print("\tHit@1 =", self.hit1[raw_or_fil])
