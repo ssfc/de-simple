@@ -15,7 +15,7 @@ from measure import Measure
 
 
 class Tester:
-    def __init__(self, dataset, model_path, valid_or_test):
+    def __init__(self, dataset, params, model_path, valid_or_test):
         self.model = torch.load(model_path)
         self.model.eval()
         self.dataset = dataset

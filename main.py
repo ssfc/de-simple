@@ -58,7 +58,7 @@ model_prefix = "models/" + args.model + "/" + args.dataset + "/" + params.str_()
 
 for idx in validation_idx:
     model_path = model_prefix + idx + ".chkpnt"
-    tester = Tester(dataset, model_path, "valid")
+    tester = Tester(dataset, params, model_path, "valid")
     mrr = tester.test()
     if mrr > best_mrr:
         best_mrr = mrr
@@ -68,7 +68,7 @@ for idx in validation_idx:
 print("Best epoch: " + best_index)
 model_path = model_prefix + best_index + ".chkpnt"
 
-tester = Tester(dataset, model_path, "test")
+tester = Tester(dataset, params, model_path, "test")
 tester.test()
 
 
