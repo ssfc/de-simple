@@ -16,17 +16,18 @@ class Params:
                  dropout=0.4,  # Parameter 9;
                  save_each=50,  # Parameter 10;
                  se_prop=0.9):  # Parameter 11;
-        
-        self.ne = ne  # number of epochs;
-        self.bsize = bsize  # batch size;
-        self.lr = lr  # learning rate;
-        self.reg_lambda = reg_lambda  # L2 regularization parameter;
+
+        self.ne = ne  # Parameter 3, number of epochs;
+        self.bsize = bsize  # Parameter 4, batch size;
+        self.lr = lr  # Parameter 5, learning rate;
+        self.reg_lambda = reg_lambda  # Parameter 6, L2 regularization parameter;
         self.static_emb_dim = int(se_prop * emb_dim)
         self.temporal_emb_dim = emb_dim - int(se_prop * emb_dim)
-        self.save_each = save_each  # save model after certain epochs;
-        self.neg_ratio = neg_ratio  # negative ratio;
-        self.dropout = dropout  # dropout probability
-        self.se_prop = se_prop  # static embedding proportion
+
+        self.neg_ratio = neg_ratio  # Parameter 8, negative ratio;
+        self.dropout = dropout  # Parameter 9, dropout probability
+        self.save_each = save_each  # Parameter 10, save model after certain epochs;
+        self.se_prop = se_prop  # Parameter 11, static embedding proportion
 
     def str_(self):
         return str(self.ne) + "_" + str(self.bsize) + "_" + str(self.lr) + "_" + str(self.reg_lambda) + "_" + str(
