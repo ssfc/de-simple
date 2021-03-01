@@ -7,6 +7,8 @@
 class Params:
 
     def __init__(self,
+                 kg_name = 'icews14',  # Parameter 1;
+                 model_type = 'DE_DistMult',  # Parameter 2;
                  ne=500,  # Parameter 3;
                  bsize=512,  # Parameter 4;
                  lr=0.001,  # Parameter 5;
@@ -17,6 +19,8 @@ class Params:
                  save_each=50,  # Parameter 10;
                  se_prop=0.9):  # Parameter 11;
 
+        self.kg_name = kg_name,  # Parameter 1;
+        self.model_type = model_type,  # Parameter 2;
         self.ne = ne  # Parameter 3, number of epochs;
         self.bsize = bsize  # Parameter 4, batch size;
         self.lr = lr  # Parameter 5, learning rate;

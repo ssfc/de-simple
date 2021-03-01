@@ -19,7 +19,7 @@ parser.add_argument('-dataset', help='Dataset', type=str, default='icews14', cho
 # Parameter 2;
 parser.add_argument('-model', help='Model', type=str, default='DE_DistMult', choices = ['DE_DistMult', 'DE_TransE', 'DE_SimplE'])
 # Parameter 3;
-parser.add_argument('-ne', help='Number of epochs', type=int, default=500, choices = [20, 60, 500])
+parser.add_argument('-ne', help='Number of epochs', type=int, default=500, choices = [10, 20, 60, 500])
 # Parameter 4;
 parser.add_argument('-bsize', help='Batch size', type=int, default=256, choices = [256])
 # Parameter 5;
@@ -33,7 +33,7 @@ parser.add_argument('-neg_ratio', help='Negative ratio', type=int, default=500, 
 # Parameter 9;
 parser.add_argument('-dropout', help='Dropout probability', type=float, default=0.4, choices = [0.0, 0.2, 0.4])
 # Parameter 10;
-parser.add_argument('-save_each', help='Save model and validate each K epochs', type=int, default=20, choices = [20])
+parser.add_argument('-save_each', help='Save model and validate each K epochs', type=int, default=20, choices = [5, 20])
 # Parameter 11;
 parser.add_argument('-se_prop', help='Static embedding proportion', type=float, default=0.36)
 
@@ -44,7 +44,8 @@ dataset = Dataset(args.dataset)
 
 # --------------------------------------------- 3. this part use Params --------------------------------------
 params = Params(
-#    KGName = args.dataset,
+    kg_name = args.dataset,  # Parameter 1;
+    model_type = args.model,  # Parameter 2;
     ne=args.ne,  # Parameter 3;
     bsize=args.bsize,  # Parameter 4;
     lr=args.lr,  # Parameter 5;

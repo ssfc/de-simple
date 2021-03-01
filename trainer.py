@@ -20,7 +20,7 @@ from tester import Tester
 class Trainer:
     def __init__(self, dataset, params, model_name):
         instance_gen = globals()[model_name]
-        self.model_name = model_name
+        self.model_name = params.kg_name
         self.model = nn.DataParallel(instance_gen(dataset=dataset, params=params))
         self.dataset = dataset
         self.params = params
