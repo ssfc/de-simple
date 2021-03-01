@@ -20,7 +20,7 @@ from tester import Tester
 class Trainer:
     def __init__(self, dataset, params, model_name):
         instance_gen = globals()[model_name]
-        self.model_name = model_name
+        self.model_name = params.model_type
         self.model = nn.DataParallel(instance_gen(dataset=dataset, params=params))
         self.dataset = dataset
         self.params = params
@@ -69,8 +69,11 @@ class Trainer:
                 total_loss += loss.cpu().item()
 
             print(time.time() - start)
+#            print("Loss in iteration " + str(epoch) + ": " + str(
+#                total_loss) + "(" + self.model_name + "," + self.dataset.name + ")")
+
             print("Loss in iteration " + str(epoch) + ": " + str(
-                total_loss) + "(" + self.model_name + "," + self.dataset.name + ")")
+                total_loss) + "(" + "," + self.dataset.name + ")")
 
             content.append(total_loss)
 
