@@ -16,6 +16,7 @@ class Params:
                  dropout=0.4,  # Parameter 9;
                  save_each=50,  # Parameter 10;
                  se_prop=0.9):  # Parameter 11;
+        
         self.ne = ne  # number of epochs;
         self.bsize = bsize  # batch size;
         self.lr = lr  # learning rate;
