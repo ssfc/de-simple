@@ -21,6 +21,7 @@ class Tester:
         self.dataset = dataset
         self.valid_or_test = valid_or_test
         self.measure = Measure()
+        self.params = params
 
     def get_rank(self, sim_scores):  # assuming the test fact is the first one
         return (sim_scores > sim_scores[0]).sum() + 1
@@ -53,5 +54,8 @@ class Tester:
         print("~~~~~~~~~~~~~")
         self.measure.normalize(len(self.dataset.data[self.valid_or_test]))
         self.measure.print_()
+
+#        path = "models/" + self.params + "/" + self.dataset.name + "/"
+#        self.measure.save_result(path, name)
 
         return self.measure.mrr["fil"]

@@ -7,15 +7,15 @@
 class Params:
 
     def __init__(self,
-                 ne=500,
-                 bsize=512,  # batch size;
-                 lr=0.001,  # learning rate;
-                 reg_lambda=0.0,
-                 emb_dim=100,
-                 neg_ratio=20,
-                 dropout=0.4,
-                 save_each=50,
-                 se_prop=0.9):
+                 ne=500,  # Parameter 3;
+                 bsize=512,  # Parameter 4;
+                 lr=0.001,  # Parameter 5;
+                 reg_lambda=0.0,  # Parameter 6;
+                 emb_dim=100,  # Parameter 7;
+                 neg_ratio=20,  # Parameter 8;
+                 dropout=0.4,  # Parameter 9;
+                 save_each=50,  # Parameter 10;
+                 se_prop=0.9):  # Parameter 11;
         self.ne = ne  # number of epochs;
         self.bsize = bsize  # batch size;
         self.lr = lr  # learning rate;
