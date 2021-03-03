@@ -58,7 +58,7 @@ params = Params(
 )
 
 # --------------------------------------------- 4. this part use Trainer --------------------------------------
-trainer = Trainer(dataset, params, args.model)
+trainer = Trainer(dataset, params)
 trainer.train()
 
 # --------------------------------------------- 5. this part use Tester --------------------------------------
@@ -78,7 +78,7 @@ for idx in validation_idx:
         best_index = idx
 
 # testing the best chosen model (of validation set) on the test set
-print("Best epoch: " + best_index)
+print("Best epoch: " + best_index)  # 这里的best epoch找出的是一个集群，而不是某个iteration; 结果也是一个epoch一个epoch计算的;
 model_path = model_prefix + best_index + ".chkpnt"
 
 tester = Tester(dataset, params, model_path, "test")

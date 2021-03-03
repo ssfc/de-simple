@@ -18,7 +18,7 @@ from tester import Tester
 
 
 class Trainer:
-    def __init__(self, dataset, params, model_name):
+    def __init__(self, dataset, params):
         self.model_name = params.model_type[0]
         instance_gen = globals()[self.model_name]
         self.model = nn.DataParallel(instance_gen(dataset=dataset, params=params))

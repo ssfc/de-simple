@@ -55,7 +55,8 @@ class Tester:
         self.measure.normalize(len(self.dataset.data[self.valid_or_test]))
         self.measure.print_()
 
-#        path = "models/" + self.params + "/" + self.dataset.name + "/"
+        path = "models/" + self.params.model_type[0] + "/" + self.dataset.name + "/"
+        print(path)
 #        self.measure.save_result(path, name)
 
         return self.measure.mrr["fil"]
