@@ -57,7 +57,7 @@ class Tester:
 
         path = "models/" + self.params.model_type[0] + "/" + self.dataset.name + "/"
         print(path)
-        with open(path + self.params.str_() + "something.txt", "w", encoding='UTF-8') as f:
+        with open(path + self.params.str_() + "_result.txt", "w", encoding='UTF-8') as f:
             f.write("hello")
 #        self.measure.save_result(path, name)
 

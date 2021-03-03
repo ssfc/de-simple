@@ -79,6 +79,6 @@ class Trainer:
                 self.save_model(epoch)
 
         directory = "models/" + self.model_name + "/" + self.dataset.name + "/"  # directory to save models;
-        with open(directory + self.params.str_() + ".txt", "w", encoding='UTF-8') as f:
+        with open(directory + self.params.str_() + "_loss.txt", "w", encoding='UTF-8') as f:
             for element in content:
                 f.write("%s\n" % element)
