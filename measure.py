@@ -43,11 +43,12 @@ class Measure:
             print("")
 
     def save_result(self, path, name):
-        for raw_or_fil in ["raw", "fil"]:
-            print(raw_or_fil.title() + " setting:")
-            print("\tHit@1 =", self.hit1[raw_or_fil])
-            print("\tHit@3 =", self.hit3[raw_or_fil])
-            print("\tHit@10 =", self.hit10[raw_or_fil])
-            print("\tMR =", self.mr[raw_or_fil])
-            print("\tMRR =", self.mrr[raw_or_fil])
-            print("")
+        with open(path + name + "_test_result.txt", "w", encoding='UTF-8') as f:
+            for raw_or_fil in ["raw", "fil"]:
+                f.write(raw_or_fil.title() + " setting:" + "\n")
+                f.write("\tHit@1 =" + str(self.hit1[raw_or_fil]) + "\n")
+                f.write("\tHit@3 =" + str(self.hit3[raw_or_fil]) + "\n")
+                f.write("\tHit@10 =" + str(self.hit10[raw_or_fil]) + "\n")
+                f.write("\tMR =" + str(self.mr[raw_or_fil]) + "\n")
+                f.write("\tMRR =" + str(self.mrr[raw_or_fil]) + "\n")
+                f.write("" + "\n")

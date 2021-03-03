@@ -56,9 +56,6 @@ class Tester:
         self.measure.print_()
 
         path = "models/" + self.params.model_type[0] + "/" + self.dataset.name + "/"
-        print(path)
-        with open(path + self.params.str_() + "_result.txt", "w", encoding='UTF-8') as f:
-            f.write("hello")
-#        self.measure.save_result(path, name)
+        self.measure.save_result(path, self.params.str_())
 
         return self.measure.mrr["fil"]

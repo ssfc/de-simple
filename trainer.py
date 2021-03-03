@@ -34,7 +34,6 @@ class Trainer:
         torch.save(self.model, directory + self.params.str_() + "_" + str(chkpnt) + ".chkpnt")
 
     def train(self, early_stop=False):
-        print(self.model_name)
         self.model.train()
 
         optimizer = torch.optim.Adam(
