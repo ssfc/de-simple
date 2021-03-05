@@ -54,14 +54,14 @@ class Trainer:
                                                                                            neg_ratio=self.params.neg_ratio)
                 last_batch = self.dataset.was_last_batch()
 
-                scores = self.model(heads, relations, tails, years, months, days)
+                scores = self.model(heads, relations, tails, years, months, days)  # forward propagation;
 
                 # Added for softmax
                 num_examples = int(heads.shape[0] / (1 + self.params.neg_ratio))
                 scores_reshaped = scores.view(num_examples, self.params.neg_ratio + 1)
                 l = torch.zeros(num_examples).long().cuda()
                 loss = loss_f(scores_reshaped, l)
-                loss.backward()
+                loss.backward()  # back propagation; 
                 optimizer.step()
                 total_loss += loss.cpu().item()
 
