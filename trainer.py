@@ -48,21 +48,23 @@ class Trainer:
             start = time.time()
 
             while not last_batch:
-                optimizer.zero_grad()
 
+                # (1) 从数据集中取出标签;
                 heads, relations, tails, years, months, days = self.dataset.get_next_batch(self.params.bsize,
                                                                                            neg_ratio=self.params.neg_ratio)
+
                 last_batch = self.dataset.was_last_batch()
 
-                scores = self.model(heads, relations, tails, years, months, days)  # forward propagation;
+                scores = self.model(heads, relations, tails, years, months, days)  # (2) forward propagation;
 
                 # Added for softmax
                 num_examples = int(heads.shape[0] / (1 + self.params.neg_ratio))
                 scores_reshaped = scores.view(num_examples, self.params.neg_ratio + 1)
                 l = torch.zeros(num_examples).long().cuda()
-                loss = loss_f(scores_reshaped, l)
-                loss.backward()  # back propagation; 
-                optimizer.step()
+                loss = loss_f(scores_reshaped, l)  # (3) 计算代价函数;
+                optimizer.zero_grad()  # (4) 清零梯度准备计算;
+                loss.backward()  # (5) back propagation;
+                optimizer.step()  # (6) 更新训练参数;
                 total_loss += loss.cpu().item()
 
             print(time.time() - start)
