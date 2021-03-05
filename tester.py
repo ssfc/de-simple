@@ -6,7 +6,6 @@
 #
 import torch
 import numpy as np
-from dataset import Dataset
 from scripts import shredFacts
 from de_distmult import DE_DistMult
 from de_transe import DE_TransE

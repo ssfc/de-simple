@@ -32,13 +32,14 @@ class Trainer:
     def train(self, early_stop=False):
         self.model.train()
 
+        loss_f = nn.CrossEntropyLoss()
+
         optimizer = torch.optim.Adam(
             self.model.parameters(),
             lr=self.params.lr,
             weight_decay=self.params.reg_lambda
         )  # weight_decay corresponds to L2 regularization
 
-        loss_f = nn.CrossEntropyLoss()
         content = []
 
         for epoch in range(1, self.params.ne + 1):
