@@ -32,9 +32,7 @@ class Trainer:
         # strange characters;
 
     def train(self, early_stop=False):
-        self.model.train()
-
-        loss_f = nn.CrossEntropyLoss()
+        criterion = nn.CrossEntropyLoss()
 
         optimizer = torch.optim.Adam(
             self.model.parameters(),
@@ -63,7 +61,7 @@ class Trainer:
                 num_examples = int(heads.shape[0] / (1 + self.params.neg_ratio))
                 scores_reshaped = scores.view(num_examples, self.params.neg_ratio + 1)
                 l = torch.zeros(num_examples).long().cuda()
-                loss = loss_f(scores_reshaped, l)  # (3) 计算代价函数;
+                loss = criterion(scores_reshaped, l)  # (3) 计算代价函数;
                 optimizer.zero_grad()  # (4) 清零梯度准备计算;
                 loss.backward()  # (5) back propagation;
                 optimizer.step()  # (6) 更新训练参数;
