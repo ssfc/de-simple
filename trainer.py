@@ -16,8 +16,9 @@ from de_simple import DE_SimplE
 class Trainer:
     def __init__(self, dataset, params):
         self.model_name = params.model_type[0]
-        instance_gen = globals()[self.model_name]
-        self.model = nn.DataParallel(instance_gen(dataset=dataset, params=params))
+#        instance_gen = globals()[self.model_name]
+#        self.model = nn.DataParallel(instance_gen(dataset=dataset, params=params))
+        self.model = nn.DataParallel(globals()[self.model_name](dataset=dataset, params=params))  # 这里建立的是DE_SimplE的实例; 
         self.dataset = dataset
         self.params = params
 
