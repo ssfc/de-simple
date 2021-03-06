@@ -28,7 +28,8 @@ class Trainer:
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-        torch.save(self.model, directory + self.params.str_() + "_" + str(chkpnt) + ".chkpnt")
+        torch.save(self.model, directory + self.params.str_() + "_" + str(chkpnt) + ".chkpnt")  # saved file contains
+        # strange characters;
 
     def train(self, early_stop=False):
         self.model.train()
